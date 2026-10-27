@@ -1,13 +1,7 @@
 import { Suspense } from "react";
 import { connection } from "next/server";
-import TicketPurchase from "./TicketPurchase";
-import {
-  EVENTS,
-  formatEventDate,
-  formatEventTime,
-  formatPrice,
-  getUpcomingEvents,
-} from "./events";
+import EventBrowser from "./EventBrowser";
+import { EVENTS, getUpcomingEvents } from "./events";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -114,53 +108,5 @@ async function UpcomingEventCards() {
     );
   }
 
-  return (
-    <ul className={styles.eventGrid}>
-      {events.map((event, index) => {
-        return (
-          <li className={styles.eventItem} key={event.id}>
-            <article className={styles.eventCard}>
-              <div className={styles.cardTopline}>
-                <span className={styles.category}>{event.category}</span>
-                <span className={styles.cardIndex}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <h3>{event.title}</h3>
-              <p className={styles.clubName}>{event.club}</p>
-              <p className={styles.eventDescription}>{event.description}</p>
-
-              <dl className={styles.eventDetails}>
-                <div>
-                  <dt>Date &amp; time</dt>
-                  <dd>
-                    <time dateTime={event.startsAt}>
-                      {formatEventDate(event.startsAt)}
-                    </time>
-                    <span>{formatEventTime(event.startsAt)}</span>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Location</dt>
-                  <dd>{event.location}</dd>
-                </div>
-              </dl>
-
-              <div className={styles.cardFooter}>
-                <TicketPurchase
-                  eventId={event.id}
-                  eventTitle={event.title}
-                  seatsRemaining={event.seatsRemaining}
-                />
-                <div className={styles.price}>
-                  <span>Ticket</span>
-                  <strong>{formatPrice(event.priceCents)}</strong>
-                </div>
-              </div>
-            </article>
-          </li>
-        );
-      })}
-    </ul>
-  );
+  return <EventBrowser events={events} />;
 }

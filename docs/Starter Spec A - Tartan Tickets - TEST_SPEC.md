@@ -37,6 +37,17 @@ Every requirement in `requirements.md` and `SECURITY_SPEC.md` maps to at least o
 | REQ-8.4 | test_unassigned_volunteer_cannot_scan | Integration | Volunteer for another event is denied. |
 | REQ-8.5 | test_offline_scan_shows_no_connection | E2E | With network disabled, no admit result is ever shown. |
 
+## Story 7: Find events
+
+| Requirement | Test name | Type | What it proves |
+|-----|-----------|------|----------------|
+| STORY-7.1 | test_story_7_search_events_by_keyword | Unit | Search matches event names and descriptions without case sensitivity. |
+| STORY-7.2 | test_story_7_filter_events_by_date_range | Unit | Start and end dates include events on both boundary dates. |
+| STORY-7.3 | test_story_7_filter_events_by_club_and_category | Unit | Club and category selections each restrict the results. |
+| STORY-7.4 | test_story_7_combine_search_and_filters | Unit | Search, date, club, and category all apply together. |
+| STORY-7.5 | test_story_7_shows_empty_results_message | Unit | No matches show a helpful empty-results message. |
+| STORY-7.6 | test_story_7_clear_search_and_filters | Unit | Clearing every filter restores the full upcoming event list. |
+
 ## Security requirements
 
 | Req | Test name | Type | What it proves |

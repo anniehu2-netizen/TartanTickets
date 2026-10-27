@@ -228,6 +228,70 @@
   font-style: italic;
 }
 
+.eventFilters {
+  display: grid;
+  grid-template-columns: minmax(200px, 2fr) repeat(4, minmax(125px, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.filterField {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.filterField input,
+.filterField select {
+  width: 100%;
+  min-width: 0;
+  height: 39px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--foreground);
+  background: #fff;
+  font: inherit;
+  font-size: 11px;
+}
+
+.filterField input:focus-visible,
+.filterField select:focus-visible,
+.clearFiltersButton:focus-visible {
+  outline: 2px solid var(--cardinal);
+  outline-offset: 2px;
+}
+
+.clearFiltersButton {
+  min-height: 39px;
+  padding: 0 13px;
+  border: 1px solid var(--cardinal);
+  color: var(--cardinal);
+  background: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.clearFiltersButton:disabled {
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.eventResultCount {
+  margin: 15px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
 .eventGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -564,6 +628,10 @@
 }
 
 @media (max-width: 900px) {
+  .eventFilters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .eventGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -623,6 +691,20 @@
 
   .sectionNote {
     margin-top: 9px;
+  }
+
+  .eventFilters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .filterField:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .clearFiltersButton {
+    grid-column: 1 / -1;
   }
 
   .eventGrid {

@@ -1,8 +1,9 @@
 # Tartan Tickets
 
-A Next.js demo for browsing upcoming Carnegie Mellon University events and
-making simulated ticket reservations. Events and reservations are kept in
-server memory; there is no sign-in, database, real payment, or email delivery.
+A Next.js demo for browsing upcoming Carnegie Mellon University events,
+searching and filtering them, and making simulated ticket reservations. Events
+and reservations are kept in server memory; there is no sign-in, database, real
+payment, or email delivery.
 Reservations and buyer details disappear when the server process restarts. The
 sold-out event's “Join waitlist” button is a placeholder for a later story.
 

@@ -1,5 +1,11 @@
 import { randomUUID } from "node:crypto";
 
+export {
+  formatEventDate,
+  formatEventTime,
+  formatPrice,
+} from "./event-search.ts";
+
 export type CampusEvent = {
   id: string;
   title: string;
@@ -219,31 +225,6 @@ export function createTicketOrder(
     seats,
     seatsRemaining: seatsRemaining - seats,
   };
-}
-
-export function formatPrice(priceCents: number): string {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(priceCents / 100);
-}
-
-export function formatEventDate(startsAt: string): string {
-  return new Intl.DateTimeFormat("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    timeZone: "America/New_York",
-  }).format(new Date(startsAt));
-}
-
-export function formatEventTime(startsAt: string): string {
-  return new Intl.DateTimeFormat("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    timeZone: "America/New_York",
-  }).format(new Date(startsAt));
 }
 
 export function getAvailabilityLabel(event: CampusEvent): string {

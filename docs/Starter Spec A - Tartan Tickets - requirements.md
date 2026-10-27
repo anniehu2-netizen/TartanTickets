@@ -45,6 +45,14 @@ As a club officer, I want to create events and see who is attending.
 As an officer, I want to scan tickets at the door.
 - WHEN a QR code is scanned, THE system SHALL mark the ticket as used and reject any later scans of it.
 
+### Story 7: Find events
+As a student, I want to search and filter upcoming events so that I can find ones I am interested in.
+- THE system SHALL let students search event names and descriptions.
+- THE system SHALL let students filter events by a date range, one club, and one category.
+- WHEN search and filters are used together, THE system SHALL show only events matching every selected condition.
+- IF no events match, THEN THE system SHALL explain that no events match and suggest changing or clearing filters.
+- THE system SHALL let students clear all search terms and filters to show all upcoming events again.
+
 ## 4. Data Model
 - `users(user_id, email, name, role)`
 - `events(event_id, club_id, title, starts_at, location, price_cents, capacity, status)`
@@ -92,3 +100,15 @@ As an officer, I want to scan tickets at the door.
 - All tests pass, including the security tests.
 - A person has reviewed the code against this spec.
 - The docs and the spec match the shipped behavior.
+
+## Scope for HW3
+
+- Build story [7]: [Find Events].
+- No real payments. Where the spec says to charge a card, use a
+  "Simulated payment" button and list real payments as a non-goal in
+  the README.
+- No sign-in provider. Where the spec needs a signed-in user, use a
+  name typed into a text box and list real authentication as a
+  non-goal.
+- No database. Keep data in memory on the server and say in the README
+  that it resets on every deploy.
