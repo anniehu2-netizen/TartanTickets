@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tartan Tickets
 
-## Getting Started
+A Next.js demo for browsing upcoming Carnegie Mellon University events and
+making simulated ticket reservations. Events and reservations are kept in
+server memory; there is no sign-in, database, real payment, or email delivery.
+Reservations and buyer details disappear when the server process restarts. The
+sold-out event's “Join waitlist” button is a placeholder for a later story.
 
-First, run the development server:
+## Run locally
+
+You need Node.js 24 or newer and npm. From this folder, install dependencies
+once and start the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you installed Node.js using the user-level setup for this project and your
+terminal cannot find `npm`, add its location to the current terminal first:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+export PATH="$HOME/.local/node-v24.22.1/bin:$PATH"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open [http://localhost:3000](http://localhost:3000). Use Ctrl+C in the
+terminal to stop the server.
 
-## Learn More
+## Check the project
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm test
+npm run lint
+npm run build
+```
