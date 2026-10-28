@@ -22,6 +22,8 @@ export async function POST(request: Request) {
       orderId: result.orderId,
       seats: result.seats,
       seatsRemaining: result.seatsRemaining,
+      totalPriceCents: result.totalPriceCents,
+      amountCents: result.amountCents,
       simulated: true,
     },
     { status: 201 },

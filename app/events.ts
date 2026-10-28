@@ -42,6 +42,8 @@ type TicketOrderResult =
       orderId: string;
       seats: number;
       seatsRemaining: number;
+      totalPriceCents: number;
+      amountCents: number;
     }
   | {
       ok: false;
@@ -207,6 +209,7 @@ export function createTicketOrder(
     };
   }
 
+  const totalPriceCents = event.priceCents * seats;
   const orderId = randomUUID();
   ticketStore.reservedSeats.set(event.id, event.seatsRemaining - seatsRemaining + seats);
   ticketStore.orders.push({
@@ -224,6 +227,8 @@ export function createTicketOrder(
     orderId,
     seats,
     seatsRemaining: seatsRemaining - seats,
+    totalPriceCents,
+    amountCents: totalPriceCents,
   };
 }
 

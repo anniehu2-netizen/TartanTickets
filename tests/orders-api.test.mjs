@@ -45,3 +45,25 @@ test("ticket order API rejects malformed and invalid requests", async () => {
   assert.equal(malformedResponse.status, 400);
   assert.equal(invalidResponse.status, 400);
 });
+
+test("The server ignores a client-supplied amount and charges the event price times the ticket count.", async () => {
+  const response = await POST(
+    new Request("http://localhost/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        eventId: "robotics-demo-night",
+        name: "Riley Student",
+        andrewId: "rstudent",
+        email: "rstudent@andrew.cmu.edu",
+        seats: 2,
+        amountCents: 999999,
+      }),
+    }),
+  );
+
+  assert.equal(response.status, 201);
+  const body = await response.json();
+  assert.equal(body.totalPriceCents, 1000);
+  assert.equal(body.amountCents, 1000);
+});

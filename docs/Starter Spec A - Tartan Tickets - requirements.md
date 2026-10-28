@@ -103,7 +103,7 @@ As a student, I want to search and filter upcoming events so that I can find one
 
 ## Scope for HW3
 
-- Build story [7]: [Find Events].
+- Build story [7]: [Search Events].
 - No real payments. Where the spec says to charge a card, use a
   "Simulated payment" button and list real payments as a non-goal in
   the README.
